@@ -1,0 +1,35 @@
+const int BUTTON = 13;
+const int R = 7;
+const int G = 12;
+const int B = 8;
+
+
+boolean get_touch(){
+  boolean touch_stat=0;
+  touch_stat=digitalRead(BUTTON);//读入状态
+  return touch_stat;
+}
+
+void setup() {
+  pinMode(BUTTON,INPUT);
+  pinMode(R,OUTPUT);
+  pinMode(G,OUTPUT);
+  pinMode(B,OUTPUT);
+}
+
+void loop() {
+  boolean touch_stat;
+  
+  touch_stat=get_touch(); //变成红色
+  if(touch_stat){
+  analogWrite(R,255);
+  analogWrite(G,0);
+  analogWrite(B,0);  
+  }else
+  {
+    analogWrite(R,255);//变成绿色
+  analogWrite(G,255);
+  analogWrite(B,0);  
+  }
+}
+
